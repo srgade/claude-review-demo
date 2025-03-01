@@ -1,14 +1,16 @@
 import os
 import sys
-import anthropic
+# import anthropic
 import requests
 from git import Repo
 from typing import List, Dict, Tuple
 import re
+from anthropic import Anthropic
 
 class CodeReviewer:
     def __init__(self):
-        self.anthropic = anthropic.Client(os.getenv('ANTHROPIC_API_KEY'))
+        # self.anthropic = anthropic.Client(os.getenv('ANTHROPIC_API_KEY'))
+        self.anthropic = Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'))
         self.github_token = os.getenv('GITHUB_TOKEN')
         self.pr_number = os.getenv('PR_NUMBER')
         self.repo_name = os.getenv('REPO_NAME')
